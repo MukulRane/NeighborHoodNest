@@ -1,0 +1,61 @@
+.nav-bar {
+    width: 100%;
+    background-color: #d8cfca;
+}
+
+.nav-logo-inline {
+    display: inline;
+}
+
+.nav-logo-inline img{
+  height: 60px;
+  width: 140px;
+}
+
+.nav-bar-space-between {
+  height: 3rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #544e4c
+  }
+  
+  .nav-links a:hover,
+  .nav-links a:active,
+  .nav-links a.active {
+    color: #7f4652
+  }
+
+.nav-links li {
+    font-size: 0.9rem;
+    font-family: 'Neometric-Medium';
+    display: inline;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+.transparent-button a {
+    color: inherit;
+  }
+  
+.transparent-button {
+    background-color: transparent;
+    font-family: 'Neometric-Medium';
+    border: 2px solid #7f4652; /* Adjust the border color as needed */
+    color: #7f4651; /* Adjust the text color as needed */
+    padding: 8px 24px; /* Adjust the padding as needed */
+    font-size: 0.9rem; /* Adjust the font size as needed */
+    cursor: pointer;
+  }
+  
+  .transparent-button:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Adjust the background color on hover as needed */
+  }

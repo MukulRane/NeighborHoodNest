@@ -1,0 +1,26 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: content-box;
+}
+
+@font-face {
+  font-family: 'Neometric-Medium'; /* Specify the desired font-family name */
+  src: url('./fonts/Neometric-Medium.otf'); /* Specify the path to your font file */
+  /* Add additional src lines for different font file formats if needed */
+  /* Example: src: url('../fonts/YourFontFile.woff') format('woff'); */
+}
+
+@font-face {
+  font-family: 'cretypeCarosBold'; /* Specify the desired font-family name */
+  src: url('./fonts/cretypeCarosBold.otf'); /* Specify the path to your font file */
+  /* Add additional src lines for different font file formats if needed */
+  /* Example: src: url('../fonts/YourFontFile.woff') format('woff'); */
+}
+
+@font-face {
+  font-family: 'QanelasSoftMedium'; /* Specify the desired font-family name */
+  src: url('./fonts/QanelasSoftMedium.otf'); /* Specify the path to your font file */
+  /* Add additional src lines for different font file formats if needed */
+  /* Example: src: url('../fonts/YourFontFile.woff') format('woff'); */
+}

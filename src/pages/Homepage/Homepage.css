@@ -1,0 +1,147 @@
+.container-homepage {
+  height: 600px;
+  background-color: #d8cfca;
+}
+
+.homepage-container-1 {
+  position: relative;
+  display: flex;
+  height: inherit;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.homepage-container-1-left {
+  background-color: #d8cfca;
+  height: inherit;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.homepage-container-1-right {
+  background-color: lightgreen;
+  height: inherit;
+  width: 50%;
+}
+
+.homepage-container-1-left-main-text {
+  color: #262626;
+  font-size: 3.5rem;
+  font-family: "cretypeCarosBold";
+}
+
+.homepage-container-1-left-sub-text {
+  color: #7f4652;
+  font-size: 1.2rem;
+  font-family: "QanelasSoftMedium";
+}
+
+.homepage-container-1-left-sub-sub-text {
+  color: #797979;
+  font-size: 0.8rem;
+  font-family: "Neometric-Medium";
+}
+
+.book-now-button a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.book-now-button {
+  background-color: transparent;
+  width: fit-content;
+  font-family: "Neometric-Medium";
+  border: 3px solid #7f4652;
+  color: #7f4651;
+  padding: 8px 24px;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.book-now-button:hover {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+}
+
+.homepage-button-text-align {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage-button-text-align-1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.homepage-container-1-right {
+  background-color: #d8cfca;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-container-1-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.homepage-container-2 {
+  background-color: #ffffff;
+  height: 400px;
+  margin-left: 10vw;
+  margin-right: 10vw;
+}
+
+.magenta {
+    color: #7f4652;
+}
+
+.homepage-container-3 {
+    display: flex;
+    background-color: #d8cfca;
+    height: 400px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+  }
+
+  .homepage-container-3-left {
+    width: 40%;
+    background-color: lightblue;
+  }
+
+  .homepage-container-3-right {
+    width: 60%;
+    background-color: lightgreen;
+  }
+
+.homepage-container-3-47-rated-description-points-ul {
+    list-style-position: inside;
+}
+
+.homepage-container-3-47-rated {
+    font-size: 2em;
+    font-family: "cretypeCarosBold";
+    color: #262626;
+}
+
+.homepage-container-3-47-rated-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(73, 72, 72);
+    margin-bottom: 20px;
+  }
+
+.homepage-container-3-47-rated-description-points-li {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: rgb(73, 72, 72);
+    margin-bottom: 15px;
+}

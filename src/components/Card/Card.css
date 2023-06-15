@@ -1,0 +1,54 @@
+.homepage-container-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homepage-container-2-cards {
+    display: flex;
+}
+
+.homepage-container-2-text1 {
+    font-size: 0.7em;
+    font-family: "cretypeCarosBold";
+    color: #c19e7e;
+}
+
+.homepage-container-2-text2 {
+    font-size: 2em;
+    font-family: "cretypeCarosBold";
+    color: #262626;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 1px solid #d8cfca;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 40%;
+  margin-right: 40px;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-family: "QanelasSoftMedium";
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #888888;
+  margin-bottom: 15px;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #555555;
+}
+
+.green {
+    color: #177f51;
+}

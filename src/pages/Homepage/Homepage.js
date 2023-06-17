@@ -23,7 +23,7 @@ const HomePage = () => {
             <div className="homepage-button-text-align-1">
               <div className="homepage-button-text-align">
                 <div className="book-now-button">
-                  <NavLink to="/bookNow">Book Now</NavLink>
+                  <NavLink to="/servicesListing">Book Now</NavLink>
                 </div>
                 <div style={{ height: "10px" }}></div>
                 <div className="homepage-container-1-left-sub-sub-text">

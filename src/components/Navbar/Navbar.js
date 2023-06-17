@@ -22,7 +22,7 @@ const Navbar = () => {
                 <NavLink to="/loginSignup">Login/Signup</NavLink>
               </li>
               <li className="transparent-button">
-                <NavLink to="/bookNow">Book Now</NavLink>
+                <NavLink to="/servicesListing">Book Now</NavLink>
               </li>
               
             </ul>

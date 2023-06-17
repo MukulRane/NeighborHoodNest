@@ -1,0 +1,46 @@
+.service-card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.service-card {
+  width: calc(33.33% - 15px);
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-right: 15px;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 16px;
+  background-color: #fff;
+}
+
+.card-title {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 16px;
+  color: #555;
+}
+
+.card-price {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
+  }
+  

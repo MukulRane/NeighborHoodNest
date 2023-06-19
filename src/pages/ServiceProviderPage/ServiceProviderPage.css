@@ -1,0 +1,166 @@
+.service-providers-div {
+  display: flex;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.service-providers-filters {
+  width: 28%;
+  margin-top: 20px;
+  margin-right: 60px;
+}
+
+.service-providers-display {
+  width: 68%;
+  margin-top: 20px;
+  height: fit-content;
+}
+
+.service-providers-filters-card {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 100%;
+  height: inherit;
+  border-radius: 8px;
+  border: 1px solid #cccfce;
+  overflow: hidden;
+}
+
+.service-providers-display-card {
+  width: 100%;
+  height: inherit;
+  border-radius: 8px;
+  border: 1px solid #cccfce;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+}
+
+.service-providers-filters-card-flat-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.flat-button {
+  width: 35%;
+  background-color: transparent;
+  border: 1px solid #6b6e6d;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #000;
+  outline: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.flat-button.active {
+  background-color: #7f46512e;
+  color: #000;
+  border: 1px solid #7f4651;
+}
+
+.flat-button:hover {
+  background-color: #7f46510f;
+  color: #000;
+}
+
+.magenta {
+  color: #7f4652;
+}
+
+.service-providers-filters-card-hr {
+  border: none;
+  height: 1px;
+  background-color: #cccfce;
+}
+
+.service-providers-display-card-profile-reviews {
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  justify-content: flex-start;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+}
+
+.profile-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile-image-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-button {
+  width: 55%;
+  background-color: #7f4651;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #ffffff;
+  outline: none;
+  cursor: pointer;
+}
+
+.book-button:hover {
+  background-color: #b46373;
+  color: #fff;
+}
+
+.tasker-text-align {
+  text-align: center;
+}
+
+.service-providers-display-card-about {
+  width: 62%;
+  height: 100%;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.service-providers-display-card-about-name-price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.service-providers-display-card-about-rounded-div {
+  border-radius: 10px;
+  width: 90%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: #fff5ef;
+}
+
+.service-providers-display-card-review {
+  display: flex;
+}
+
+.service-providers-display-card-review-profile-temp {
+  width: fit-content;
+}
+
+.service-providers-display-card-review-profile {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.service-providers-display-card-review-review {
+  padding-left: 20px;
+}

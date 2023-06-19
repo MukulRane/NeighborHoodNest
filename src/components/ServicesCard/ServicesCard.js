@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from 'react-router-dom';
 
 import "./ServicesCard.css";
-import ServiceProviderPage from "../../pages/ServiceProviderPage/ServiceProviderPage";
 
 const ServicesCard = ({ imageSrc, title, description, price }) => {
     const navigate = useNavigate();

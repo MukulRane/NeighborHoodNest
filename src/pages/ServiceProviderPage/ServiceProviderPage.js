@@ -5,11 +5,18 @@ import HorizontalRuleWithText from "../../components/HorizontalRuleWithText/Hori
 import ServiceProviderSlotDropdown from "../../components/ServiceProviderSlotDropdown/ServiceProviderSlotDropdown";
 import PriceRangeSlider from "../../components/PriceRangeSlider/PriceRangeSlider";
 import { FaStar } from "react-icons/fa";
+import ServiceProviderProfileModal from "../../modals/ServiceProviderProfile/ServiceProviderProfileModal";
+import SlotSelection from "../../modals/SlotSelection/SlotSelection";
+import ReactModal from "react-modal";
 
 const ServiceProviderPage = () => {
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const [isChecked3, setIsChecked3] = useState(false);
+
+  const [isViewProfileClicked, setIsViewProfileClicked] = useState(false);
+
+  const [modalOpen, setModalOpen] = useState(false);
 
   const handleCheckboxChange1 = (event) => {
     setIsChecked1(event.target.checked);
@@ -161,9 +168,48 @@ const ServiceProviderPage = () => {
               />
             </div>
             <div style={{ height: "10px" }}></div>
-            <b className="magenta">View Profile & Reviews</b>
+            <b
+              className="magenta"
+              onClick={() => {
+                setIsViewProfileClicked(true);
+                setModalOpen(true);
+              }}
+            >
+              View Profile & Reviews
+            </b>
+            <div>
+              <ReactModal
+                contentLabel="Modal"
+                isOpen={modalOpen}
+                style={{
+                  content: {
+                    width: "50%",
+                    height: "90%",
+                    top: "50%",
+                    left: "50%",
+                    right: "auto",
+                    bottom: "auto",
+                    marginRight: "-50%",
+                    transform: "translate(-50%, -50%)",
+                  },
+                }}
+                onRequestClose={() => setModalOpen(false)}
+              >
+                {isViewProfileClicked ? (
+                  <ServiceProviderProfileModal />
+                ) : (
+                  <SlotSelection />
+                )}
+              </ReactModal>
+            </div>
             <div style={{ height: "10px" }}></div>
-            <button className="book-button" onClick={() => {}}>
+            <button
+              className="book-button"
+              onClick={() => {
+                setIsViewProfileClicked(false);
+                setModalOpen(true);
+              }}
+            >
               Select & Continue
             </button>
             <div style={{ height: "10px" }}></div>

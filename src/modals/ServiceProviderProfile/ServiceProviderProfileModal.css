@@ -1,0 +1,54 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .modal-content {
+    position: relative;
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.5;
+    z-index: 999;
+  }
+
+  .service-provider-profile-modal-space-between {
+    display: flex;
+  }
+  
+  .service-provider-profile-modal-div {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .service-provider-profile-modal-name-review {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-provider-profile-modal-price-button {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }

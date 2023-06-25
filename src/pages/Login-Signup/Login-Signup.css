@@ -1,0 +1,77 @@
+.Login-Signup-Auth-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+  }
+  
+  .Login-Signup-Auth-form {
+    width: 400px;
+    padding: 30px;
+    border-radius: 8px;
+    background-color: #ffffff;
+  }
+  
+  .Login-Signup-Auth-form-content {
+    margin-bottom: 20px;
+  }
+  
+  .Login-Signup-Auth-form-title {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 24px;
+    color: #333333;
+    font-weight: bold;
+  }
+  
+  .Login-Signup-Auth-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+  }
+  
+  .Login-Signup-Auth-form input[type="text"],
+  .Login-Signup-Auth-form input[type="email"],
+  .Login-Signup-Auth-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  .Login-Signup-Auth-form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .Login-Signup-Auth-form button[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
+  .Login-Signup-Auth-form p.text-center {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333333;
+  }
+  
+  .Login-Signup-Auth-form p.text-center a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .Login-Signup-Auth-form p.text-center a:hover {
+    text-decoration: underline;
+  }
+  

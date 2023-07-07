@@ -4,6 +4,7 @@ import ServicesListing from './pages/ServicesListing/ServicesListing'
 import HomePage from './pages/Homepage/Homepage'
 import LoginSignup from "./pages/Login-Signup/Login-Signup";
 import ServiceProviderPage from "./pages/ServiceProviderPage/ServiceProviderPage";
+import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
 
 import {
   BrowserRouter as Router,
@@ -21,6 +22,7 @@ function App() {
           <Routes>
             <Route path='/' exact element={<HomePage />} />
             <Route path='/loginSignup' exact element={<LoginSignup />} />
+            <Route path='/myAccount' exact element={<MyAccountPage />} />
             <Route path='/servicesListing' exact element={<ServicesListing />} />
             <Route path='/serviceProviders' exact element={<ServiceProviderPage />} />
             <Route path="*" element={<Navigate to ="/" />}/>

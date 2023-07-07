@@ -21,6 +21,9 @@ const Navbar = () => {
               <li>
                 <NavLink to="/loginSignup">Login/Signup</NavLink>
               </li>
+              <li>
+                <NavLink to="/myAccount">My Account</NavLink>
+              </li>
               <li className="transparent-button">
                 <NavLink to="/servicesListing">Book Now</NavLink>
               </li>

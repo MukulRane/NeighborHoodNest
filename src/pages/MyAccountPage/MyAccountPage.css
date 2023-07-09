@@ -1,8 +1,12 @@
+
 .my-account-page {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     gap: 20px;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
   }
   
   .options-section {
@@ -27,7 +31,7 @@
   
   .options-list li.active {
     background-color: #e0e0e0;
-  }
+  }f
   
   .details-section {
     flex: 2;

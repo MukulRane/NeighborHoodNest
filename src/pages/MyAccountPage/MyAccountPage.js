@@ -1,5 +1,9 @@
-import React, { useState } from 'react';
-import './MyAccountPage.css'
+import React, { useState } from "react";
+import Profile from "./Profile/Profile";
+import Password from "./Password/Password";
+import ScheduledTasks from "./ScheduledTask/ScheduledTask";
+import DeleteAccount from "./DeleteAccount/DeleteAccount";
+import "./MyAccountPage.css";
 
 const MyAccountPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -13,32 +17,26 @@ const MyAccountPage = () => {
       <div className="options-section">
         <ul className="options-list">
           <li
-            className={selectedOption === 'profile' ? 'active' : ''}
-            onClick={() => handleOptionClick('profile')}
+            className={selectedOption === "profile" ? "active" : ""}
+            onClick={() => handleOptionClick("profile")}
           >
             Profile
           </li>
           <li
-            className={selectedOption === 'password' ? 'active' : ''}
-            onClick={() => handleOptionClick('password')}
+            className={selectedOption === "password" ? "active" : ""}
+            onClick={() => handleOptionClick("password")}
           >
             Password
           </li>
           <li
-            className={selectedOption === 'myTasks' ? 'active' : ''}
-            onClick={() => handleOptionClick('myTasks')}
+            className={selectedOption === "myTasks" ? "active" : ""}
+            onClick={() => handleOptionClick("myTasks")}
           >
             My Tasks
           </li>
           <li
-            className={selectedOption === 'cancelTask' ? 'active' : ''}
-            onClick={() => handleOptionClick('cancelTask')}
-          >
-            Cancel a Task
-          </li>
-          <li
-            className={selectedOption === 'deleteAccount' ? 'active' : ''}
-            onClick={() => handleOptionClick('deleteAccount')}
+            className={selectedOption === "deleteAccount" ? "active" : ""}
+            onClick={() => handleOptionClick("deleteAccount")}
           >
             Delete Account
           </li>
@@ -48,9 +46,17 @@ const MyAccountPage = () => {
       <div className="details-section">
         {selectedOption && (
           <div className="details-container">
-            <h3>{selectedOption}</h3>
-            {/* Display relevant details based on the selected option */}
-            {/* Example: You can add different components or content here */}
+            {selectedOption === "profile" ? (
+              <Profile />
+            ) : selectedOption === "password" ? (
+              <Password />
+            ) : selectedOption === "myTasks" ? (
+              <ScheduledTasks />
+            ) : selectedOption === "deleteAccount" ? (
+              <DeleteAccount />
+            ) : (
+              <h3>{selectedOption}</h3>
+            )}
           </div>
         )}
       </div>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
+import homeService from "../../images/Services/service-maintenance-worker-repairing.jpg";
 
 import "./ServicesCard.css";
 
@@ -26,7 +27,8 @@ const ServiceCardGrid = ({ cards }) => {
   return (
     <div className="service-card-grid">
       {cards.map((card, index) => (
-        <ServicesCard key={index} imageSrc={card.imageSrc} title={card.title} description={card.description} price={cards.price}/>
+        <ServicesCard key={index} imageSrc={`${homeService}`} title={card.categoryName} description={'8 service providers'} price={'start $1203'}/>
+        // <ServicesCard key={index} imageSrc={card.imageSrc} title={card.title} description={card.description} price={cards.price}/>
       ))}
     </div>
   );

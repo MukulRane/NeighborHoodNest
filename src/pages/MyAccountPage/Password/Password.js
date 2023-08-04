@@ -1,44 +1,87 @@
-import React, { useState } from "react";
-import '../Profile/Profile.css'
-import './Password.css'
+import React, { useState, useEffect } from "react";
+import "../Profile/Profile.css";
+import "./Password.css";
+import ErrorModal from "../../../components/UIElements/ErrorModal/ErrorModal";
+import LoadingSpinner from "../../../components/UIElements/LoadingSpinner/LoadingSpinner";
+import { useHttpClient } from "../../../hooks/http-hooks";
 
 const Password = () => {
+  const [editMode, setEditMode] = useState(false);
+  const [password, setPassword] = useState("Mukul Rane");
 
-    const [editMode, setEditMode] = useState(false);
-    const [password, setName] = useState("Mukul Rane");
-    
-    const handleEditClick = () => {
-        setEditMode(true);
-      };
-    
-      const handleSaveClick = () => {
-        setEditMode(false);
-      };
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-    return <div className="options-list-profile">
-    <div className="options-list-head">
-      <h5>Change Password</h5>
-      {editMode ? (
-        <button onClick={handleSaveClick}>Save</button>
-      ) : (
-        <button onClick={handleEditClick}>Edit</button>
+  const handleEditClick = () => {
+    setEditMode(true);
+  };
+
+  const updateUserHandler = async () => {
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`,
+        "PATCH",
+        JSON.stringify({
+          password: password,
+        }),
+        { "Content-Type": "application/json" }
+      );
+    } catch (err) {}
+  };
+
+  const handleSaveClick = () => {
+    updateUserHandler();
+    setEditMode(false);
+  };
+
+  const fetchUserProfile = async () => {
+    try {
+      const responseData = await sendRequest(
+        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`
+      );
+      setPassword(responseData.user.password);
+    } catch (err) {}
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
+  return (
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
       )}
-    </div>
-    <hr />
-    <div className="options-list-body-password">
-        <h4>Current Password:</h4>
-        <div style={{ width: "10px" }}></div>
-          {editMode ? (
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setName(e.target.value)}
-            />
-          ) : (
-            <h4>{'*'.repeat(password.length)}</h4>
-          )}
-    </div>
-  </div>
-}
+      {!isLoading && (
+        <div className="options-list-profile">
+          <div className="options-list-head">
+            <h5>Change Password</h5>
+            {editMode ? (
+              <button onClick={handleSaveClick}>Save</button>
+            ) : (
+              <button onClick={handleEditClick}>Edit</button>
+            )}
+          </div>
+          <hr />
+          <div className="options-list-body-password">
+            <h4>Current Password:</h4>
+            <div style={{ width: "10px" }}></div>
+            {editMode ? (
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            ) : (
+              <h4>{"*".repeat(password.length)}</h4>
+            )}
+          </div>
+        </div>
+      )}
+    </React.Fragment>
+  );
+};
 
 export default Password;

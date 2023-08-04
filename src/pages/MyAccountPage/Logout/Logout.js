@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "../ScheduledTask/ScheduledTask.css";
+import { AppContext } from "../../../AppContext";
 
-const DeleteAccount = () => {
+const Logout = () => {
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
+  const { setIsLoggedIn } = useContext(AppContext);
 
   const handleCancelTask = () => {
     setShowPopup(true);
   };
 
   const handleConfirmCancel = () => {
+    localStorage.removeItem('isLoggedIn');
     setShowPopup(false);
+    setIsLoggedIn(false);
+    navigate("/");
   };
 
   const handleCancelPopup = () => {
@@ -19,28 +26,29 @@ const DeleteAccount = () => {
   return (
     <div className="options-list-profile">
       <div>
-        <h5>Account Deletion</h5>
+        <h5>Logout</h5>
       </div>
       <hr />
       <div>
-        Once you've deleted your account, you will no longer be able to log in
-        to the NeighborHoodNest site or apps. This action cannot be undone.
+        Are you sure you want to log out? Logging out will terminate your
+        current session, and you will no longer have access to your account
+        until you log back in again.
         <div style={{ height: "10px" }}></div>
         <button
           onClick={() => {
             handleCancelTask();
           }}
         >
-          Delete Account
+          Logout
         </button>
       </div>
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
             <h3>Confirm your decision</h3>
-            <p>Are you sure you want to delete your account?</p>
+            <p>Are you sure you want to logout from your account?</p>
             <div className="popup-buttons">
-              <button onClick={handleConfirmCancel}>Yes, I'm sure</button>
+              <button onClick={handleConfirmCancel}>Yes, Logout</button>
               <button onClick={handleCancelPopup}>Never mind</button>
             </div>
           </div>
@@ -50,4 +58,4 @@ const DeleteAccount = () => {
   );
 };
 
-export default DeleteAccount;
+export default Logout;

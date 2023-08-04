@@ -3,6 +3,7 @@ import Profile from "./Profile/Profile";
 import Password from "./Password/Password";
 import ScheduledTasks from "./ScheduledTask/ScheduledTask";
 import DeleteAccount from "./DeleteAccount/DeleteAccount";
+import Logout from "./Logout/Logout";
 import "./MyAccountPage.css";
 
 const MyAccountPage = () => {
@@ -40,6 +41,12 @@ const MyAccountPage = () => {
           >
             Delete Account
           </li>
+          <li
+            className={selectedOption === "logout" ? "active" : ""}
+            onClick={() => handleOptionClick("logout")}
+          >
+            Logout
+          </li>
         </ul>
       </div>
 
@@ -54,6 +61,8 @@ const MyAccountPage = () => {
               <ScheduledTasks />
             ) : selectedOption === "deleteAccount" ? (
               <DeleteAccount />
+            ) : selectedOption === "logout" ? (
+              <Logout />
             ) : (
               <h3>{selectedOption}</h3>
             )}

@@ -6,6 +6,9 @@ import phoneStockImage from "../../images/Capture-removebg.png";
 import Card from "../../components/Card/Card";
 
 const HomePage = () => {
+
+  console.log("value = "+localStorage.getItem("isLoggedIn"))
+
   return (
     <div>
       <div className="container-homepage">

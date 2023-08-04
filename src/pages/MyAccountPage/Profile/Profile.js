@@ -1,101 +1,157 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaPersonBooth } from "react-icons/fa";
-import './Profile.css'
+import "./Profile.css";
+import ErrorModal from "../../../components/UIElements/ErrorModal/ErrorModal";
+import LoadingSpinner from "../../../components/UIElements/LoadingSpinner/LoadingSpinner";
+import { useHttpClient } from "../../../hooks/http-hooks";
 
 const Profile = () => {
+  const [editMode, setEditMode] = useState(false);
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [zipcode, setZipcode] = useState();
+  const [profileUrl, setProfileUrl] = useState();
 
-    const [editMode, setEditMode] = useState(false);
-    const [name, setName] = useState("Mukul Rane");
-    const [email, setEmail] = useState("rane.mukul@gmail.com");
-    const [phone, setPhone] = useState("+1 6028422139");
-    const [zipcode, setZipcode] = useState("85212");
-    
-    const handleEditClick = () => {
-        setEditMode(true);
-      };
-    
-      const handleSaveClick = () => {
-        setEditMode(false);
-      };
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-    return <div className="options-list-profile">
-    <div className="options-list-head">
-      <h5>Account</h5>
-      {editMode ? (
-        <button onClick={handleSaveClick}>Save</button>
-      ) : (
-        <button onClick={handleEditClick}>Edit</button>
+  const handleEditClick = () => {
+    setEditMode(true);
+  };
+
+  const updateUserHandler = async () => {
+    const nameArray = name.split(" ");
+    const first = nameArray.slice(0, -1).join(" ");
+    const last = nameArray[nameArray.length - 1];
+    try {
+      await sendRequest(
+        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`,
+        "PATCH",
+        JSON.stringify({
+          firstName: first,
+          lastName: last,
+          email: email,
+          phoneNumber: phone,
+          pinCode: parseInt(zipcode),
+        }),
+        { "Content-Type": "application/json" }
+      );
+    } catch (err) {}
+  };
+
+  const handleSaveClick = () => {
+    updateUserHandler();
+    setEditMode(false);
+  };
+
+  const fetchUserProfile = async () => {
+    try {
+      const responseData = await sendRequest(
+        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`
+      );
+      console.log(responseData)
+      setName(responseData.user.firstName + " " + responseData.user.lastName);
+      setEmail(responseData.user.email);
+      setPhone(responseData.user.phoneNumber);
+      setZipcode(responseData.user.pinCode);
+      setProfileUrl(responseData.user.profileUrl);
+    } catch (err) {}
+  };
+
+  useEffect(() => {
+    fetchUserProfile();
+  }, []);
+
+  return (
+    <React.Fragment>
+      <ErrorModal error={error} onClear={clearError} />
+
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner />
+        </div>
       )}
-    </div>
-    <hr />
-    <div className="options-list-body">
-      <div className="options-list-body-image">
-        <div className="profile-image">
-          <img
-            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-            alt="Profile"
-            className="profile-image-image"
-          />
-        </div>
-      </div>
+      {!isLoading && name && (
+        <div className="options-list-profile">
+          <div className="options-list-head">
+            <h5>Account</h5>
+            {editMode ? (
+              <button onClick={handleSaveClick}>Save</button>
+            ) : (
+              <button onClick={handleEditClick}>Edit</button>
+            )}
+          </div>
+          <hr />
+          <div className="options-list-body">
+            <div className="options-list-body-image">
+              <div className="profile-image">
+                <img
+                  src={profileUrl}
+                  alt="Profile"
+                  className="profile-image-image"
+                />
+              </div>
+            </div>
 
-      <div className="options-list-body-details">
-        <div className="options-list-body-details-group">
-          <FaPersonBooth name="FaPersonBooth" size="20" />
-          <div style={{ width: "10px" }}></div>
-          {editMode ? (
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          ) : (
-            <h4>{name}</h4>
-          )}
+            <div className="options-list-body-details">
+              <div className="options-list-body-details-group">
+                <FaPersonBooth name="FaPersonBooth" size="20" />
+                <div style={{ width: "10px" }}></div>
+                {editMode ? (
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                ) : (
+                  <h4>{name}</h4>
+                )}
+              </div>
+              <div className="options-list-body-details-group">
+                <FaPersonBooth name="FaPersonBooth" size="20" />
+                <div style={{ width: "10px" }}></div>
+                {editMode ? (
+                  <input
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                ) : (
+                  <h4>{email}</h4>
+                )}
+              </div>
+              <div className="options-list-body-details-group">
+                <FaPersonBooth name="FaPersonBooth" size="20" />
+                <div style={{ width: "10px" }}></div>
+                {editMode ? (
+                  <input
+                    type="text"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                  />
+                ) : (
+                  <h4>{phone}</h4>
+                )}
+              </div>
+              <div className="options-list-body-details-group">
+                <FaPersonBooth name="FaPersonBooth" size="20" />
+                <div style={{ width: "10px" }}></div>
+                {editMode ? (
+                  <input
+                    type="text"
+                    value={zipcode}
+                    onChange={(e) => setZipcode(e.target.value)}
+                  />
+                ) : (
+                  <h4>{zipcode}</h4>
+                )}
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="options-list-body-details-group">
-          <FaPersonBooth name="FaPersonBooth" size="20" />
-          <div style={{ width: "10px" }}></div>
-          {editMode ? (
-            <input
-              type="text"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          ) : (
-            <h4>{email}</h4>
-          )}
-        </div>
-        <div className="options-list-body-details-group">
-          <FaPersonBooth name="FaPersonBooth" size="20" />
-          <div style={{ width: "10px" }}></div>
-          {editMode ? (
-            <input
-              type="text"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-          ) : (
-            <h4>{phone}</h4>
-          )}
-        </div>
-        <div className="options-list-body-details-group">
-          <FaPersonBooth name="FaPersonBooth" size="20" />
-          <div style={{ width: "10px" }}></div>
-          {editMode ? (
-            <input
-              type="text"
-              value={zipcode}
-              onChange={(e) => setZipcode(e.target.value)}
-            />
-          ) : (
-            <h4>{zipcode}</h4>
-          )}
-        </div>
-        <button onClick={()=>{}}>Logout</button>
-      </div>
-    </div>
-  </div>
-}
+      )}
+    </React.Fragment>
+  );
+};
 
 export default Profile;

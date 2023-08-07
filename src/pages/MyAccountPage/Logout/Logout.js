@@ -13,7 +13,8 @@ const Logout = () => {
   };
 
   const handleConfirmCancel = () => {
-    localStorage.removeItem('isLoggedIn');
+    localStorage.setItem("isLoggedIn", "n");
+    console.log('User logged OUT')
     setShowPopup(false);
     setIsLoggedIn(false);
     navigate("/");

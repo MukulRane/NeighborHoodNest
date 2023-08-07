@@ -1,77 +1,64 @@
 .search-bar {
-    position: relative;
-    display: flex;
-    align-items: center;
-    width: 400px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .search-bar input {
-    flex: 1;
-    padding: 12px;
-    border: none;
-    background-color: transparent;
-    outline: none;
-    color: #333;
-  }
-  
-  .search-icon {
-    display: flex;
-    align-items: center;
-    padding: 0 12px;
-  }
-  
-  .search-bar button {
-    padding: 12px;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .dropdown {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-top: 4px;
-    padding: 0;
-    list-style: none;
-    max-height: 200px;
-    overflow-y: auto;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dropdown li {
-    padding: 12px;
-    padding-left: 16px;
-    padding-right: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .dropdown li:hover {
-    background-color: #f0f0f0;
-  }
-  
-  .dropdown li:first-child {
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-  }
-  
-  .dropdown li:last-child {
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
-  
-  .dropdown li:not(:last-child) {
-    border-bottom: 1px solid #ccc;
-  }
-  
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  color: #333;
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 4px;
+  padding: 0;
+  list-style: none;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown li {
+  padding: 12px;
+  cursor: pointer;
+}
+
+/* Apply grey background only to individual values when hovered */
+.dropdown .value:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown li:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.dropdown li:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.dropdown li:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+/* This class is used to style the values within the li */
+.value {
+  padding-left: 16px;
+}

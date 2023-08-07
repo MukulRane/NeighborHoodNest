@@ -147,6 +147,7 @@ const LoginSignup = () => {
         JSON.stringify(responseData.signIn.isUser)
       );
       localStorage.setItem("isLoggedIn", "y");
+      console.log('User logged IN')
       setIsLoggedIn(true);
       navigate("/");
     } catch (err) {

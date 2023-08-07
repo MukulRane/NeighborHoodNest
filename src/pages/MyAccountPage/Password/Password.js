@@ -18,7 +18,13 @@ const Password = () => {
   const updateUserHandler = async () => {
     try {
       await sendRequest(
-        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`,
+        JSON.parse(localStorage.getItem("isUser"))
+          ? `http://localhost:5000/api/userSignup/${localStorage.getItem(
+              "userId"
+            )}`
+          : `http://localhost:5000/api/serviceProvider/${localStorage.getItem(
+              "userId"
+            )}`,
         "PATCH",
         JSON.stringify({
           password: password,
@@ -36,9 +42,19 @@ const Password = () => {
   const fetchUserProfile = async () => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`
+        JSON.parse(localStorage.getItem("isUser"))
+          ? `http://localhost:5000/api/userSignup/${localStorage.getItem(
+              "userId"
+            )}`
+          : `http://localhost:5000/api/serviceProvider/${localStorage.getItem(
+              "userId"
+            )}`
       );
-      setPassword(responseData.user.password);
+      if (JSON.parse(localStorage.getItem("isUser"))) {
+        setPassword(responseData.user.password);
+      } else {
+        setPassword(responseData.serviceProvider[0].password);
+      }
     } catch (err) {}
   };
 

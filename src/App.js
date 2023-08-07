@@ -5,6 +5,7 @@ import HomePage from "./pages/Homepage/Homepage";
 import LoginSignup from "./pages/Login-Signup/Login-Signup";
 import ServiceProviderPage from "./pages/ServiceProviderPage/ServiceProviderPage";
 import MyAccountPage from "./pages/MyAccountPage/MyAccountPage";
+import ServiceProviderAccountPage from "./pages/MyAccountPage/ServiceProviderAccountPage";
 import { AppProvider } from "./AppContext";
 
 import {
@@ -25,6 +26,7 @@ function App() {
               <Route path="/" exact element={<HomePage />} />
               <Route path="/loginSignup" exact element={<LoginSignup />} />
               <Route path="/myAccount" exact element={<MyAccountPage />} />
+              <Route path="/serviceProviderAccount" exact element={<ServiceProviderAccountPage />} />
               <Route
                 path="/servicesListing"
                 exact

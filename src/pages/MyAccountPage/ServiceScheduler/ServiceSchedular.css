@@ -1,0 +1,53 @@
+.service-scheduler {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+  }
+  
+  .service-selection {
+    width: 30%;
+  }
+  
+  .service-selection h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .service-selection ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .service-selection li {
+    margin-bottom: 15px;
+  }
+  
+  .service-selection button {
+    padding: 12px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    border-radius: 6px;
+  }
+  
+  .service-selection button.selected {
+    background-color: #3498db;
+    color: white;
+  }
+  
+  .scheduler-container {
+    width: 65%;
+  }
+  
+  .scheduler-container h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+  }
+  
+  .calendar-container {
+    margin-bottom: 40px;
+  }

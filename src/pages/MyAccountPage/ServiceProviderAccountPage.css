@@ -1,0 +1,85 @@
+
+.my-account-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    margin-top: 10vh;
+    margin-left: 10vw;
+    margin-right: 10vw;
+  }
+  
+  .options-section {
+    flex: 1;
+  }
+  
+  .options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .options-list li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .options-list li:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .options-list li.active {
+    background-color: #e0e0e0;
+  }f
+  
+  .details-section {
+    flex: 2;
+  }
+  
+  .details-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .my-account-page {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .options-section {
+    flex: 1;
+  }
+  
+  .options-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .options-list li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .options-list li:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .options-list li.active {
+    background-color: #e0e0e0;
+  }
+  
+  .details-section {
+    flex: 2;
+  }
+  
+  .details-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+    

@@ -37,6 +37,7 @@
   overflow: hidden;
   display: flex;
   align-items: flex-start;
+  margin-bottom: 20px;
 }
 
 .service-providers-filters-card-flat-buttons {

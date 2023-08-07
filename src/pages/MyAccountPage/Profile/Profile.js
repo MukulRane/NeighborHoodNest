@@ -25,7 +25,13 @@ const Profile = () => {
     const last = nameArray[nameArray.length - 1];
     try {
       await sendRequest(
-        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`,
+        JSON.parse(localStorage.getItem("isUser"))
+          ? `http://localhost:5000/api/userSignup/${localStorage.getItem(
+              "userId"
+            )}`
+          : `http://localhost:5000/api/serviceProvider/${localStorage.getItem(
+              "userId"
+            )}`,
         "PATCH",
         JSON.stringify({
           firstName: first,
@@ -47,15 +53,34 @@ const Profile = () => {
   const fetchUserProfile = async () => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/userSignup/${localStorage.getItem("userId")}`
+        JSON.parse(localStorage.getItem("isUser"))
+          ? `http://localhost:5000/api/userSignup/${localStorage.getItem(
+              "userId"
+            )}`
+          : `http://localhost:5000/api/serviceProvider/${localStorage.getItem(
+              "userId"
+            )}`
       );
-      console.log(responseData)
-      setName(responseData.user.firstName + " " + responseData.user.lastName);
-      setEmail(responseData.user.email);
-      setPhone(responseData.user.phoneNumber);
-      setZipcode(responseData.user.pinCode);
-      setProfileUrl(responseData.user.profileUrl);
-    } catch (err) {}
+      if (JSON.parse(localStorage.getItem("isUser"))) {
+        setName(responseData.user.firstName + " " + responseData.user.lastName);
+        setEmail(responseData.user.email);
+        setPhone(responseData.user.phoneNumber);
+        setZipcode(responseData.user.pinCode);
+        setProfileUrl(responseData.user.profileUrl);
+      } else {
+        setName(
+          responseData.serviceProvider[0].firstName +
+            " " +
+            responseData.serviceProvider[0].lastName
+        );
+        setEmail(responseData.serviceProvider[0].email);
+        setPhone(responseData.serviceProvider[0].phoneNumber);
+        setZipcode(responseData.serviceProvider[0].pinCode);
+        setProfileUrl(responseData.serviceProvider[0].profileUrl);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {

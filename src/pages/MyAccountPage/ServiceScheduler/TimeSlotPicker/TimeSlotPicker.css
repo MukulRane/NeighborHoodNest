@@ -1,0 +1,56 @@
+.time-slot-picker {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .time-slot-picker h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+  
+  .time-slot-picker ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .time-slot-picker li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .time-slot-picker label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .time-slot-picker input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .save-button-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 20px;
+  }
+  
+  .save-button {
+    background-color: #7f4652;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .save-button:disabled {
+    background-color: #7f465236;
+    cursor: not-allowed;
+  }
+  

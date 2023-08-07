@@ -8,6 +8,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const { isLoggedIn } = useContext(AppContext);
+  console.log("isLoggedIn " + isLoggedIn);
 
   return (
     <div className="nav-bar">
@@ -29,11 +30,15 @@ const Navbar = () => {
             )}
             {isLoggedIn && (
               <li>
-                <NavLink to="/myAccount">My Account</NavLink>
+                {JSON.parse(localStorage.getItem("isUser")) ? <NavLink to="/myAccount">My Account</NavLink> : <NavLink to="/serviceProviderAccount">My Account</NavLink>}
               </li>
             )}
             <li className="transparent-button">
-              <NavLink to="/servicesListing">Book Now</NavLink>
+              {isLoggedIn ? (
+                <NavLink to="/servicesListing">Book Now</NavLink>
+              ) : (
+                <NavLink to="/loginSignup">Book Now</NavLink>
+              )}
             </li>
           </ul>
         </div>

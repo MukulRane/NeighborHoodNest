@@ -47,7 +47,7 @@ const ServicesListingPage = () => {
           Find the <span className="magenta">top-rated</span> services in your
           area.
         </div>
-        <SearchBarWithDropdown />
+        <SearchBarWithDropdown servicesKey={loadedServices}/>
         <div className="services-listing-div-cards">
           {isLoading && (
             <div className="center">

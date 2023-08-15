@@ -109,7 +109,7 @@ const TimeSlotPicker = ({
           Select available time slots for {service} on {date.toDateString()}:
         </h3>
         <ul>
-          {timeSlots.map((timeSlot) => {
+          {selectedSlots && timeSlots.map((timeSlot) => {
             return (
               <li key={timeSlot.value}>
                 <label>
@@ -125,7 +125,7 @@ const TimeSlotPicker = ({
             );
           })}
         </ul>
-        <div className="save-button-container">
+        {selectedSlots && <div className="save-button-container">
           <button
             className="save-button"
             onClick={handleSaveSlots}
@@ -133,7 +133,7 @@ const TimeSlotPicker = ({
           >
             Save
           </button>
-        </div>
+        </div>}
       </div>
     </React.Fragment>
   );

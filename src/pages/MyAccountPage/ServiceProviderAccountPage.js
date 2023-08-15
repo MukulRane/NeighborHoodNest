@@ -5,6 +5,9 @@ import ServiceScheduler from "./ServiceScheduler/ServiceScheduler";
 import DeleteAccount from "./DeleteAccount/DeleteAccount";
 import Logout from "./Logout/Logout";
 import "./ServiceProviderAccountPage.css";
+import PendingRequest from "./ScheduledTask/ScheduledTask";
+import MyTasks from "./MyTask/MyTask";
+import CancelledTasks from "./CancelledTasks/CancelledTasks";
 
 const ServiceProviderAccountPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -36,6 +39,24 @@ const ServiceProviderAccountPage = () => {
             Service Schedule
           </li>
           <li
+            className={selectedOption === "pendingRequests" ? "active" : ""}
+            onClick={() => handleOptionClick("pendingRequests")}
+          >
+            Pending Requests
+          </li>
+          <li
+            className={selectedOption === "myTasks" ? "active" : ""}
+            onClick={() => handleOptionClick("myTasks")}
+          >
+            My Tasks
+          </li>
+          <li
+            className={selectedOption === "cancelledTasks" ? "active" : ""}
+            onClick={() => handleOptionClick("cancelledTasks")}
+          >
+            Cancelled Tasks
+          </li>
+          <li
             className={selectedOption === "deleteAccount" ? "active" : ""}
             onClick={() => handleOptionClick("deleteAccount")}
           >
@@ -59,6 +80,12 @@ const ServiceProviderAccountPage = () => {
               <Password />
             ) : selectedOption === "serviceScheduler" ? (
               <ServiceScheduler />
+            ) : selectedOption === "pendingRequests" ? (
+              <PendingRequest />
+            ) : selectedOption === "myTasks" ? (
+              <MyTasks />
+            ) : selectedOption === "cancelledTasks" ? (
+              <CancelledTasks />
             ) : selectedOption === "deleteAccount" ? (
               <DeleteAccount />
             ) : selectedOption === "logout" ? (

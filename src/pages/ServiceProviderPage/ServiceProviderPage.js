@@ -17,8 +17,8 @@ const ServiceProviderPage = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const subCategoryId = queryParams.get("subCategoryId");
-  console.log("subCategoryId in page = " + subCategoryId);
   const [serviceProvidersData, setServiceProvidersData] = useState();
+  const [selectedServiceProvider, setSelectedServiceProvider] = useState(null);
 
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
@@ -100,6 +100,15 @@ const ServiceProviderPage = () => {
 
   const handleButtonClick = (buttonId) => {
     setActiveButton(buttonId);
+  };
+
+  const handleSelectAndContinueClick = (serviceProviderData) => {
+    console.log(
+      "serviceProviderData mmm = " + JSON.stringify(serviceProviderData)
+    );
+    setSelectedServiceProvider(serviceProviderData);
+    setIsViewProfileClicked(false);
+    setModalOpen(true);
   };
 
   return (
@@ -221,38 +230,16 @@ const ServiceProviderPage = () => {
                       >
                         View Profile & Reviews
                       </b>
-                      <div>
-                        <ReactModal
-                          contentLabel="Modal"
-                          isOpen={modalOpen}
-                          style={{
-                            content: {
-                              width: "50%",
-                              height: "90%",
-                              top: "50%",
-                              left: "50%",
-                              right: "auto",
-                              bottom: "auto",
-                              marginRight: "-50%",
-                              transform: "translate(-50%, -50%)",
-                            },
-                          }}
-                          onRequestClose={() => setModalOpen(false)}
-                        >
-                          {isViewProfileClicked ? (
-                            <ServiceProviderProfileModal />
-                          ) : (
-                            <SlotSelection />
-                          )}
-                        </ReactModal>
-                      </div>
                       <div style={{ height: "10px" }}></div>
                       <button
                         className="book-button"
-                        onClick={() => {
-                          setIsViewProfileClicked(false);
-                          setModalOpen(true);
-                        }}
+                        onClick={() =>
+                          handleSelectAndContinueClick(serviceProvider)
+                        }
+                        // onClick={() => {
+                        //   setIsViewProfileClicked(false);
+                        //   setModalOpen(true);
+                        // }}
                       >
                         Select & Continue
                       </button>
@@ -324,6 +311,39 @@ const ServiceProviderPage = () => {
                   </div>
                 );
               })}
+          </div>
+          <div>
+            <ReactModal
+              contentLabel="Modal"
+              isOpen={modalOpen}
+              style={{
+                content: {
+                  width: "50%",
+                  height: "90%",
+                  top: "50%",
+                  left: "50%",
+                  right: "auto",
+                  bottom: "auto",
+                  marginRight: "-50%",
+                  transform: "translate(-50%, -50%)",
+                },
+              }}
+              onRequestClose={() => {
+                setModalOpen(false);
+                setIsViewProfileClicked(false);
+              }}
+            >
+              {isViewProfileClicked && selectedServiceProvider ? <ServiceProviderProfileModal /> : (
+                <SlotSelection serviceProviderData={selectedServiceProvider} />
+              )}
+              {/* {isViewProfileClicked ? (
+                            <ServiceProviderProfileModal />
+                          ) : (
+                            <SlotSelection
+                              serviceProviderData={serviceProvider}
+                            />
+                          )} */}
+            </ReactModal>
           </div>
         </div>
       )}

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import "./ScheduledTask.css";
+import "../ScheduledTask/ScheduledTask.css";
 import ErrorModal from "../../../components/UIElements/ErrorModal/ErrorModal";
 import LoadingSpinner from "../../../components/UIElements/LoadingSpinner/LoadingSpinner";
 import { useHttpClient } from "../../../hooks/http-hooks";
 
-const ScheduledTasks = () => {
+const MyTask = () => {
   const [tasks, setTasks] = useState(null);
-
   const [showPopup, setShowPopup] = useState(false);
   const [cancelTaskId, setCancelTaskId] = useState(null);
 
@@ -46,18 +45,14 @@ const ScheduledTasks = () => {
     }
   };
 
-  const handleCancelTask = (taskId) => {
-    setCancelTaskId(taskId);
+  const handleCancelTask = (bookingID) => {
+    setCancelTaskId(bookingID);
     setShowPopup(true);
-  };
-
-  const handleConfirmAccept = (bookingID) => {
-    updateBookingStatus(bookingID, "Accepted");
   };
 
   const handleConfirmCancel = () => {
     // setTasks(tasks.filter((task) => task.id !== cancelTaskId));
-    updateBookingStatus(cancelTaskId, "CancelledBySP");
+    updateBookingStatus(cancelTaskId, "CancelledByUser");
     setShowPopup(false);
   };
 
@@ -80,57 +75,85 @@ const ScheduledTasks = () => {
       )}
       {!isLoading && tasks && (
         <div className="scheduled-tasks">
-          {!JSON.parse(localStorage.getItem("isUser")) ? <h2>Pending Tasks</h2> : <h2>Pending Order</h2>}
+          <h2>Scheduled Tasks</h2>
           {tasks.length > 0 ? (
             <ul className="task-list">
               {tasks.map((task) => {
                 return (
-                  task.booking.status === "N/A" && (
+                  task.booking.status === "Accepted" && (
                     <li key={task.booking._id} className="task-item">
-                      <div className="task-info">
-                        <h3>{task.title}</h3>
-                        <p>
-                          Date: {new Date(task.booking.date).toDateString()}
-                        </p>
-                        <p>Time: {task.booking.time}</p>
-                        {!JSON.parse(localStorage.getItem("isUser")) ? (
+                      {!JSON.parse(localStorage.getItem("isUser")) ? (
+                        <div className="task-info">
+                          <h3>{task.title}</h3>
+                          <p>
+                            Date: {new Date(task.booking.date).toDateString()}
+                          </p>
+                          <p>Time: {task.booking.time}</p>
                           <p>
                             Customer:{" "}
                             {task.customer.firstName +
                               " " +
                               task.customer.lastName}
                           </p>
-                        ) : (
+                          <p>Email: {task.customer.email}</p>
+                          <p>Phone no.: {task.customer.phoneNumber}</p>
+                          <p>Address: {task.customer.address}</p>
+                          <p>Zip Code: {task.customer.pinCode}</p>
+                        </div>
+                      ) : (
+                        <div className="task-info">
+                          <h3>{task.title}</h3>
                           <p>
-                            Service Provider:{" "}
-                            {task.serviceProvider.firstName +
-                              " " +
-                              task.serviceProvider.lastName}
+                            Date: {new Date(task.booking.date).toDateString()}
                           </p>
-                        )}
-                        <p>Email: {!JSON.parse(localStorage.getItem("isUser")) ? task.customer.email : task.serviceProvider.email}</p>
-                        <p>Phone no.: {!JSON.parse(localStorage.getItem("isUser")) ? task.customer.phoneNumber : task.serviceProvider.phoneNumber}</p>
-                        {!JSON.parse(localStorage.getItem("isUser")) ? <p>Address: {task.serviceProvider.address}</p> : null}
-                        {!JSON.parse(localStorage.getItem("isUser")) ? <p>Zip Code: {task.serviceProvider.pinCode}</p> : null}
-                        {!JSON.parse(localStorage.getItem("isUser")) && (
-                          <div className="task-buttons">
-                            <button
-                              className="accept-button"
-                              onClick={() => {
-                                handleConfirmAccept(task.booking._id);
-                              }}
-                            >
-                              Accept
-                            </button>
-                            <button
-                              className="reject-button"
-                              onClick={() => handleCancelTask(task.booking._id)}
-                            >
-                              Reject
-                            </button>
-                          </div>
-                        )}
-                      </div>
+                          <p>Time: {task.booking.time}</p>
+                          {!JSON.parse(localStorage.getItem("isUser")) ? (
+                            <p>
+                              Customer:{" "}
+                              {task.customer.firstName +
+                                " " +
+                                task.customer.lastName}
+                            </p>
+                          ) : (
+                            <p>
+                              Service Provider:{" "}
+                              {task.serviceProvider.firstName +
+                                " " +
+                                task.serviceProvider.lastName}
+                            </p>
+                          )}
+                          <p>
+                            Email:{" "}
+                            {!JSON.parse(localStorage.getItem("isUser"))
+                              ? task.customer.email
+                              : task.serviceProvider.email}
+                          </p>
+                          <p>
+                            Phone no.:{" "}
+                            {!JSON.parse(localStorage.getItem("isUser"))
+                              ? task.customer.phoneNumber
+                              : task.serviceProvider.phoneNumber}
+                          </p>
+                          {!JSON.parse(localStorage.getItem("isUser")) ? (
+                            <p>Address: {task.serviceProvider.address}</p>
+                          ) : null}
+                          {!JSON.parse(localStorage.getItem("isUser")) ? (
+                            <p>Zip Code: {task.serviceProvider.pinCode}</p>
+                          ) : null}
+                          {JSON.parse(localStorage.getItem("isUser")) && (
+                            <div className="task-buttons">
+                              <button
+                                className="reject-button"
+                                onClick={() =>
+                                  handleCancelTask(task.booking._id)
+                                }
+                              >
+                                Cancel
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </li>
                   )
                 );
@@ -168,4 +191,4 @@ const ScheduledTasks = () => {
   );
 };
 
-export default ScheduledTasks;
+export default MyTask;

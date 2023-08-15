@@ -5,6 +5,8 @@ import ScheduledTasks from "./ScheduledTask/ScheduledTask";
 import DeleteAccount from "./DeleteAccount/DeleteAccount";
 import Logout from "./Logout/Logout";
 import "./MyAccountPage.css";
+import MyTasks from "./MyTask/MyTask";
+import CancelledTasks from "./CancelledTasks/CancelledTasks";
 
 const MyAccountPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -30,10 +32,22 @@ const MyAccountPage = () => {
             Password
           </li>
           <li
-            className={selectedOption === "myTasks" ? "active" : ""}
-            onClick={() => handleOptionClick("myTasks")}
+            className={selectedOption === "pendingOrders" ? "active" : ""}
+            onClick={() => handleOptionClick("pendingOrders")}
           >
-            My Tasks
+            Pending Orders
+          </li>
+          <li
+            className={selectedOption === "confirmedOrders" ? "active" : ""}
+            onClick={() => handleOptionClick("confirmedOrders")}
+          >
+            Confirmed Orders
+          </li>
+          <li
+            className={selectedOption === "cancelledOrders" ? "active" : ""}
+            onClick={() => handleOptionClick("cancelledOrders")}
+          >
+            Cancelled Orders
           </li>
           <li
             className={selectedOption === "deleteAccount" ? "active" : ""}
@@ -57,8 +71,12 @@ const MyAccountPage = () => {
               <Profile />
             ) : selectedOption === "password" ? (
               <Password />
-            ) : selectedOption === "myTasks" ? (
+            ) : selectedOption === "pendingOrders" ? (
               <ScheduledTasks />
+            ) : selectedOption === "confirmedOrders" ? (
+              <MyTasks />
+            ) : selectedOption === "cancelledOrders" ? (
+              <CancelledTasks />
             ) : selectedOption === "deleteAccount" ? (
               <DeleteAccount />
             ) : selectedOption === "logout" ? (

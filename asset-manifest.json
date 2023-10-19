@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/NeighborHoodNest/static/css/main.1b1a0d2f.css",
+    "main.js": "/NeighborHoodNest/static/js/main.e5d80819.js",
+    "static/media/service-maintenance-worker-repairing.jpg": "/NeighborHoodNest/static/media/service-maintenance-worker-repairing.504fc267ba1d1d5b4e08.jpg",
+    "static/media/Capture-removebg.png": "/NeighborHoodNest/static/media/Capture-removebg.48a502078fa16e9567fd.png",
+    "static/media/cretypeCarosBold.otf": "/NeighborHoodNest/static/media/cretypeCarosBold.43e10c3e16b22d23cde8.otf",
+    "static/media/QanelasSoftMedium.otf": "/NeighborHoodNest/static/media/QanelasSoftMedium.9ed51347d7f334e34ee3.otf",
+    "static/media/Neometric-Medium.otf": "/NeighborHoodNest/static/media/Neometric-Medium.1274095aaa2b80d88827.otf",
+    "static/media/neighborhoodnest-logo.png": "/NeighborHoodNest/static/media/neighborhoodnest-logo.a3eb57f0dd0490f6b363.png",
+    "index.html": "/NeighborHoodNest/index.html",
+    "main.1b1a0d2f.css.map": "/NeighborHoodNest/static/css/main.1b1a0d2f.css.map",
+    "main.e5d80819.js.map": "/NeighborHoodNest/static/js/main.e5d80819.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b1a0d2f.css",
+    "static/js/main.e5d80819.js"
+  ]
+}

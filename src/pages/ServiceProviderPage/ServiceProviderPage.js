@@ -78,7 +78,7 @@ const ServiceProviderPage = () => {
     try {
       console.log("subCategoryId in try = " + subCategoryId);
       const responseData = await sendRequest(
-        `http://localhost:5000/api/serviceProvider/subCategory/${subCategoryId}`
+        `https://neighborhoodnest-backend-mrane.onrender.com/api/serviceProvider/subCategory/${subCategoryId}`
       );
 
       setServiceProvidersData(responseData.serviceProvider);

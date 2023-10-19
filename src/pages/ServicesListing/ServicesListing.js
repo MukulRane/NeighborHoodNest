@@ -29,7 +29,7 @@ const ServicesListingPage = () => {
     const fetchUsers = async () => {
       try {
         const responseData = await sendRequest(
-          "http://localhost:5000/api/category/getAllCategories"
+          "https://neighborhoodnest-backend-mrane.onrender.com/api/category/getAllCategories"
         );
 
         setLoadedServices(responseData.categories);

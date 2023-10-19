@@ -36,7 +36,7 @@ const ServiceScheduler = () => {
   const fetchUserProfile = async () => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/serviceProvider/serviceProvider/${localStorage.getItem(
+        `https://neighborhoodnest-backend-mrane.onrender.com/api/serviceProvider/serviceProvider/${localStorage.getItem(
           "userId"
         )}`
       );

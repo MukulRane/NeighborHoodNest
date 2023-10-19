@@ -15,10 +15,10 @@ const MyTask = () => {
     try {
       const responseData = await sendRequest(
         JSON.parse(localStorage.getItem("isUser"))
-          ? `http://localhost:5000/api/booking/user/${localStorage.getItem(
+          ? `https://neighborhoodnest-backend-mrane.onrender.com/api/booking/user/${localStorage.getItem(
               "userId"
             )}`
-          : `http://localhost:5000/api/booking/serviceProvider/${localStorage.getItem(
+          : `https://neighborhoodnest-backend-mrane.onrender.com/api/booking/serviceProvider/${localStorage.getItem(
               "userId"
             )}`
       );
@@ -31,7 +31,7 @@ const MyTask = () => {
   const updateBookingStatus = async (bookingID, status) => {
     try {
       const responseData = await sendRequest(
-        `http://localhost:5000/api/booking/${bookingID}`,
+        `https://neighborhoodnest-backend-mrane.onrender.com/api/booking/${bookingID}`,
         "PATCH",
         JSON.stringify({
           status: status,

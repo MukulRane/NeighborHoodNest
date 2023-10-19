@@ -48,7 +48,7 @@ const LoginSignup = () => {
     let responseData;
     try {
       responseData = await sendRequest(
-        `http://localhost:5000/api/category/${selectedCategoryId}`
+        `https://neighborhoodnest-backend-mrane.onrender.com/api/category/${selectedCategoryId}`
       );
 
       setLoadedSubCategories(responseData.categories[0].subCategories);
@@ -132,7 +132,7 @@ const LoginSignup = () => {
 
     try {
       responseData = await sendRequest(
-        "http://localhost:5000/api/signIn",
+        "https://neighborhoodnest-backend-mrane.onrender.com/api/signIn",
         "POST",
         JSON.stringify({
           email: signInUsername,
@@ -160,7 +160,7 @@ const LoginSignup = () => {
       let responseData;
       try {
         responseData = await sendRequest(
-          "http://localhost:5000/api/category/getAllCategories"
+          "https://neighborhoodnest-backend-mrane.onrender.com/api/category/getAllCategories"
         );
 
         setLoadedCategories(responseData.categories);
@@ -175,7 +175,7 @@ const LoginSignup = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        "http://localhost:5000/api/userSignup",
+        "https://neighborhoodnest-backend-mrane.onrender.com/api/userSignup",
         "POST",
         JSON.stringify({
           firstName: firstName,
@@ -199,7 +199,7 @@ const LoginSignup = () => {
     try {
       console.log("categoryOptions " + categoryOptions);
       await sendRequest(
-        "http://localhost:5000/api/serviceProvider",
+        "https://neighborhoodnest-backend-mrane.onrender.com/api/serviceProvider",
         "POST",
         JSON.stringify({
           firstName: firstNameSp,

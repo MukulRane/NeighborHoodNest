@@ -50,7 +50,7 @@ const SlotSelection = ({ serviceProviderData }) => {
 
     try {
       const responseData = await sendRequest(
-        "http://localhost:5000/api/booking",
+        "https://neighborhoodnest-backend-mrane.onrender.com/api/booking",
         "POST",
         JSON.stringify({
           customerID: localStorage.getItem("userId"),

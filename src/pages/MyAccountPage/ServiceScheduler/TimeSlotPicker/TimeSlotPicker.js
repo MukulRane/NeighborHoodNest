@@ -67,7 +67,7 @@ const TimeSlotPicker = ({
 
     try {
       const responseData = await sendRequest(
-        "http://localhost:5000/api/serviceProvider/availability",
+        "https://neighborhoodnest-backend-mrane.onrender.com/api/serviceProvider/availability",
         "POST",
         JSON.stringify({
           serviceProviderID: localStorage.getItem("userId"),

@@ -26,10 +26,10 @@ const Profile = () => {
     try {
       await sendRequest(
         JSON.parse(localStorage.getItem("isUser"))
-          ? `http://localhost:5000/api/userSignup/${localStorage.getItem(
+          ? `https://neighborhoodnest-backend-mrane.onrender.com/api/userSignup/${localStorage.getItem(
               "userId"
             )}`
-          : `http://localhost:5000/api/serviceProvider/${localStorage.getItem(
+          : `https://neighborhoodnest-backend-mrane.onrender.com/api/serviceProvider/${localStorage.getItem(
               "userId"
             )}`,
         "PATCH",
@@ -54,10 +54,10 @@ const Profile = () => {
     try {
       const responseData = await sendRequest(
         JSON.parse(localStorage.getItem("isUser"))
-          ? `http://localhost:5000/api/userSignup/${localStorage.getItem(
+          ? `https://neighborhoodnest-backend-mrane.onrender.com/api/userSignup/${localStorage.getItem(
               "userId"
             )}`
-          : `http://localhost:5000/api/serviceProvider/${localStorage.getItem(
+          : `https://neighborhoodnest-backend-mrane.onrender.com/api/serviceProvider/${localStorage.getItem(
               "userId"
             )}`
       );
